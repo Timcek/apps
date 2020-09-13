@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use phpDocumentor\Reflection\Types\AbstractList;
 use Yii;
 use yii\base\Model;
 
