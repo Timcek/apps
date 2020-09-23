@@ -12,6 +12,7 @@ LoginAsset::register($this);
 
 $this->title = 'Member Login';
 ?>
+
 <div class="site-log">
     <div class="photo">
         <img src="<?=Url::to('@web/assets/person.png')?>">
