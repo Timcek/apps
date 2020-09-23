@@ -11,8 +11,11 @@ use common\models\User;
 class SignupForm extends Model
 {
     public $username;
+    public $first_name;
+    public $last_name;
     public $email;
     public $password;
+    public $confirm_password;
 
 
     /**
@@ -25,7 +28,9 @@ class SignupForm extends Model
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
-
+            ["first_name", "required"],
+            ["last_name", "required"],
+            ["confirm_password", "required"],
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
@@ -34,6 +39,7 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+            ['confirm_password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
         ];
     }
 
