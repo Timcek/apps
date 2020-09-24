@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bbdb36ef-25d6-46b3-8f38-7706e7925a5f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/yii-appli/frontend/assets/AppAsset.php" beforeDir="false" afterPath="$PROJECT_DIR$/yii-appli/frontend/assets/AppAsset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yii-appli/frontend/models/SignupForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/yii-appli/frontend/models/SignupForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yii-appli/frontend/views/site/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/yii-appli/frontend/views/site/signup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yii-appli/frontend/web/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/yii-appli/frontend/web/css/login.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/yii-appli/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="composer.json" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/yii-appli/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/phpspec/php-diff" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/behat/gherkin" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/composer" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/yiisoft/yii2-faker" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/yiisoft/yii2-bootstrap" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/yiisoft/yii2-swiftmailer" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/yiisoft/yii2" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/yiisoft/yii2-gii" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/yiisoft/yii2-debug" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/yiisoft/yii2-composer" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/codeception/module-yii2" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/codeception/phpunit-wrapper" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/codeception/verify" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/codeception/lib-innerbrowser" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/codeception/module-asserts" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/codeception/stub" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/codeception/module-filesystem" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/codeception/lib-asserts" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/codeception/codeception" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/cebe/markdown" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/bower-asset/inputmask" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/bower-asset/jquery" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/bower-asset/bootstrap" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/bower-asset/punycode" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/bower-asset/yii2-pjax" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/yii-appli/vendor/phar-io/manifest" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1hjN8bCSfvNhODNCmdkrLLvNLTj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bbdb36ef-25d6-46b3-8f38-7706e7925a5f" name="Default Changelist" comment="" />
+      <created>1600520390396</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600520390396</updated>
+      <workItem from="1600520751891" duration="14042000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1600887593161">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600887593161" />
+    <state x="700" y="243" key="NewPhpClassDialog" timestamp="1600865761341">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="700" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600865761341" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1600520813789">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1600520813789" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1600523611805">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1600523611805" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600881123802">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600881123802" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1600880871130">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1600880871130" />
+  </component>
+</project>
