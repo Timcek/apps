@@ -91,9 +91,6 @@
       <excludeFolder url="file://$MODULE_DIR$/yii-appli/vendor/yiisoft/yii2-gii" />
       <excludeFolder url="file://$MODULE_DIR$/yii-appli/vendor/yiisoft/yii2-swiftmailer" />
     </content>
-<module type="WEB_MODULE" version="4">
-  <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
