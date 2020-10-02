@@ -75,7 +75,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout ="index";
         $model = new Cars();
+        if($model->load(Yii::$app->request->post())){
+            //Yii::$app->session->setFlash('success', $model->price." ".$model->year);
+            //$model->save();
+
+            return $this->render('about',['model' => $model]);
+        }
+
         return $this->render('index',['model' => $model]);
     }
 

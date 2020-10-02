@@ -4,6 +4,7 @@ namespace frontend\models;
 
 use Yii;
 use yii\base\Model;
+use yii\db\ActiveRecord;
 /**
  * This is the model class for table "cars".
  *
@@ -11,8 +12,9 @@ use yii\base\Model;
  * @property string $car_company
  * @property string $model
  * @property int $year
+ * @property int $price
  */
-class Cars extends \yii\db\ActiveRecord
+class Cars extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -32,6 +34,7 @@ class Cars extends \yii\db\ActiveRecord
             [['year'], 'integer'],
             [['car_company'], 'string', 'max' => 255],
             [['model'], 'string', 'max' => 50],
+            [["price"],"integer"]
         ];
     }
 
@@ -45,6 +48,7 @@ class Cars extends \yii\db\ActiveRecord
             'car_company' => 'Car Company',
             'model' => 'Model',
             'year' => 'Year',
+            "price"=>"Price"
         ];
     }
 }
