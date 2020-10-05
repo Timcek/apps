@@ -79,13 +79,13 @@ class SiteController extends Controller
         $model = new Cars();
         if($model->load(Yii::$app->request->post())){
             //Yii::$app->session->setFlash('success', $model->price." ".$model->year);
-            //$model->save();
-
-            return $this->render('about',['model' => $model]);
+            $this->layout="display_cars_layout";
+           return $this->render('display_cars',['model' => $model]);
         }
 
         return $this->render('index',['model' => $model]);
     }
+    
 
     /**
      * Logs in a user.

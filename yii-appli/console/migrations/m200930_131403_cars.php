@@ -18,7 +18,12 @@ class m200930_131403_cars extends Migration
 //            "model" => $this->string()->defaultValue(null),
 //            "year" => $this->integer(30),
 //        ]);
-//        $this->addColumn('{{%cars}}', 'price', $this->integer(150));
+//        $this->addColumn('{{%cars}}', 'price', $this->string());
+//        $this->addColumn('{{%cars}}', 'engine_power', $this->int(11));
+//        $this->addColumn('{{%cars}}', 'dors', $this->int(11));
+//        $this->addColumn('{{%cars}}', 'seats', $this->int(11));
+//        $this->addColumn('{{%cars}}', 'gearing_type', $this->varchar(100));
+//        $this->addColumn('{{%cars}}', 'fuel_type', $this->varchar(50));
     }
 
     /**

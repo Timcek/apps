@@ -14,7 +14,7 @@ IndexAsset::register($this);
 $this->title = 'Najem avtomobilov';
 ?>
 <div class="site-index">
-    <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+    <?php $form = ActiveForm::begin(['id' => 'form-search']); ?>
     <div class="wrapping">
     <div class="row">
         <?php Pjax::begin(['id' => 'second_form_pjax'])?>
@@ -30,7 +30,9 @@ $this->title = 'Najem avtomobilov';
         </div>
         <div class="col-sm-6">
             <?= $form->field($model, 'model',['template'=>"{input}\n{hint}\n{error}"])->dropDownList($models[$car_com],['style'=>'border:0; border-bottom:1px solid black; border-radius:0;']) ?>
-            <script type="text/javascript">changediv(<?php echo(json_encode($car_com))?>);</script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>function changediv(c){$('.company option[value='+c+']').replaceWith('<option value='+c+' selected>'+c+'</option>')};</script>
+            <script type="text/javascript">changediv(<?php echo(json_encode($car_com))?>)</script>
         </div>
         <?php Pjax::end() ?>
     </div>
@@ -38,7 +40,6 @@ $this->title = 'Najem avtomobilov';
     $years=["First_registration"=>"First registration"];
     for($a=0;$a<121;$a++){
         $years[2020-$a]=2020-$a;
-
     }
     ?>
     <div class="row">
@@ -58,6 +59,4 @@ $this->title = 'Najem avtomobilov';
     <?php ActiveForm::end(); ?>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    function changediv(c){$('.company option[value='+c+']').replaceWith('<option value='+c+' selected>'+c+'</option>')}
-</script>
+

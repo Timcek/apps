@@ -12,7 +12,12 @@ use yii\db\ActiveRecord;
  * @property string $car_company
  * @property string $model
  * @property int $year
- * @property int $price
+ * @property string $price
+ * @property string $gearing_type
+ * @property int $dors
+ * @property int $seats
+ * @property string $fuel_type
+ * @property int $engine_power
  */
 class Cars extends ActiveRecord
 {
@@ -31,10 +36,15 @@ class Cars extends ActiveRecord
     {
         return [
             [['car_company', 'model', 'year'], 'required'],
-            [['year'], 'integer'],
+            [['year'], 'string'],
             [['car_company'], 'string', 'max' => 255],
             [['model'], 'string', 'max' => 50],
-            [["price"],"integer"]
+            [["price"],"string"],
+            [["gearing_type"],"string"],
+            [["dors"],"integer"],
+            [["seats"],"integer"],
+            [["fuel_type"],"string"],
+            [["engine_power"],"integer"],
         ];
     }
 

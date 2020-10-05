@@ -26,14 +26,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbdb36ef-25d6-46b3-8f38-7706e7925a5f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/yii-appli/frontend/views/layouts/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yii-appli/frontend/assets/display_carsAsset.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yii-appli/frontend/views/layouts/display_cars_layout.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yii-appli/frontend/views/site/display_cars.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yii-appli/frontend/web/css/display_cars.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yii-appli/console/migrations/m200930_131403_cars.php" beforeDir="false" afterPath="$PROJECT_DIR$/yii-appli/console/migrations/m200930_131403_cars.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yii-appli/frontend/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/yii-appli/frontend/controllers/SiteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yii-appli/frontend/models/Cars.php" beforeDir="false" afterPath="$PROJECT_DIR$/yii-appli/frontend/models/Cars.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yii-appli/frontend/views/site/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/yii-appli/frontend/views/site/about.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yii-appli/frontend/views/site/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/yii-appli/frontend/views/site/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yii-appli/frontend/views/site/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/yii-appli/frontend/views/site/signup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yii-appli/frontend/web/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/yii-appli/frontend/web/css/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,14 +49,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="composer.json" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
     <servers>
       <server host="localhost" id="9d0461ca-907d-48e5-a20e-a7db3a5120f5" name="localhost" />
@@ -248,54 +250,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601473102217" />
-    <state width="1877" height="296" key="GridCell.Tab.0.bottom" timestamp="1601566097292">
+    <state width="1877" height="426" key="GridCell.Tab.0.bottom" timestamp="1601913594500">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601566097292" />
-    <state width="1877" height="296" key="GridCell.Tab.0.center" timestamp="1601566097292">
+    <state width="1877" height="426" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601913594500" />
+    <state width="1877" height="426" key="GridCell.Tab.0.center" timestamp="1601913594500">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601566097292" />
-    <state width="1877" height="296" key="GridCell.Tab.0.left" timestamp="1601566097292">
+    <state width="1877" height="426" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601913594500" />
+    <state width="1877" height="426" key="GridCell.Tab.0.left" timestamp="1601913594499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601566097292" />
-    <state width="1877" height="296" key="GridCell.Tab.0.right" timestamp="1601566097292">
+    <state width="1877" height="426" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601913594499" />
+    <state width="1877" height="426" key="GridCell.Tab.0.right" timestamp="1601913594500">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601566097292" />
-    <state width="1877" height="296" key="GridCell.Tab.1.bottom" timestamp="1601566097292">
+    <state width="1877" height="426" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601913594500" />
+    <state width="1877" height="426" key="GridCell.Tab.1.bottom" timestamp="1601913594500">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601566097292" />
-    <state width="1877" height="296" key="GridCell.Tab.1.center" timestamp="1601566097292">
+    <state width="1877" height="426" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601913594500" />
+    <state width="1877" height="426" key="GridCell.Tab.1.center" timestamp="1601913594500">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601566097292" />
-    <state width="1877" height="296" key="GridCell.Tab.1.left" timestamp="1601566097292">
+    <state width="1877" height="426" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601913594500" />
+    <state width="1877" height="426" key="GridCell.Tab.1.left" timestamp="1601913594500">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601566097292" />
-    <state width="1877" height="296" key="GridCell.Tab.1.right" timestamp="1601566097292">
+    <state width="1877" height="426" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601913594500" />
+    <state width="1877" height="426" key="GridCell.Tab.1.right" timestamp="1601913594500">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601566097292" />
-    <state width="1877" height="296" key="GridCell.Tab.2.bottom" timestamp="1601566097293">
+    <state width="1877" height="426" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601913594500" />
+    <state width="1877" height="426" key="GridCell.Tab.2.bottom" timestamp="1601913594500">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601566097293" />
-    <state width="1877" height="296" key="GridCell.Tab.2.center" timestamp="1601566097293">
+    <state width="1877" height="426" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601913594500" />
+    <state width="1877" height="426" key="GridCell.Tab.2.center" timestamp="1601913594500">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601566097293" />
-    <state width="1877" height="296" key="GridCell.Tab.2.left" timestamp="1601566097292">
+    <state width="1877" height="426" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601913594500" />
+    <state width="1877" height="426" key="GridCell.Tab.2.left" timestamp="1601913594500">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601566097292" />
-    <state width="1877" height="296" key="GridCell.Tab.2.right" timestamp="1601566097293">
+    <state width="1877" height="426" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601913594500" />
+    <state width="1877" height="426" key="GridCell.Tab.2.right" timestamp="1601913594500">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601566097293" />
+    <state width="1877" height="426" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601913594500" />
     <state x="280" y="86" key="MergeDialog" timestamp="1600956006946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -304,14 +306,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600956007009" />
-    <state x="700" y="243" key="NewPhpClassDialog" timestamp="1601317470365">
+    <state x="700" y="243" key="NewPhpClassDialog" timestamp="1601645006798">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="700" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601317470365" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1601637506243">
+    <state x="700" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601645006798" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1601721445587">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601637506243" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601721445587" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1601473481090">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -320,14 +322,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1600523611805" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600973012444">
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601913422905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600973012444" />
-    <state x="1104" y="210" width="672" height="678" key="search.everywhere.popup" timestamp="1601637286587">
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601913422905" />
+    <state x="1104" y="210" width="672" height="678" key="search.everywhere.popup" timestamp="1601911115625">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1104" y="210" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601637286587" />
+    <state x="1104" y="210" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601911115625" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -349,8 +351,38 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/yii-appli/frontend/views/site/index.php</url>
-          <line>45</line>
+          <line>46</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/yii-appli/frontend/views/site/about.php</url>
+          <line>4</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/yii-appli/frontend/controllers/SiteController.php</url>
+          <line>101</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/yii-appli/frontend/views/site/display_cars.php</url>
+          <line>36</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/yii-appli/frontend/controllers/SiteController.php</url>
+          <line>78</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/yii-appli/frontend/views/site/display_cars.php</url>
+          <line>14</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/yii-appli/frontend/views/site/display_cars.php</url>
+          <line>59</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
