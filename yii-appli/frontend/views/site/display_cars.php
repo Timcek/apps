@@ -23,6 +23,8 @@ display_carsAsset::register($this);
             $years[2020-$a]=2020-$a;
         }
         ?>
+
+        <?=Html::a('Pile', ['/site/about', 'id' => "burek"])?>
         <?= $form->field($model, 'year',['template'=>"{input}\n{hint}\n{error}"])->dropDownList($years) ?>
         <?= $form->field($model, "gearing_type",['template'=>"{input}\n{hint}\n{error}"])->dropDownList(["all"=>"All","manual"=>"Manual","Automatic"=>"Automatic"])?>
         <p>Dors</p>
@@ -39,13 +41,15 @@ display_carsAsset::register($this);
     <div class="cars">
         <?php
         $all_filtering=["car_company"=>$model->car_company,"model"=>$model->model];
-        if($model->price){
+        if($model->price!="Price_to"){
             $price_filtering=["<=","price",$model->price];
+        }else{
+            $price_filtering=[];
         }
         if($model->year!="First_registration"){
             $all_filtering["year"]=$model->year;
         }
-        if($model->gearing_type!="all"){
+        if($model->gearing_type && $model->gearing_type!="all"){
             $all_filtering["gearing_type"]=$model->gearing_type;
         }
         if($model->dors!=""){
@@ -54,7 +58,7 @@ display_carsAsset::register($this);
         if($model->seats!=""){
             $all_filtering["seats"]=$model->seats;
         }
-        if($model->fuel_type!="all"){
+        if($model->fuel_type && $model->fuel_type!="all"){
             $all_filtering["fuel_type"]=$model->fuel_type;
         }
         if($model->engine_power!=""){
@@ -67,33 +71,41 @@ display_carsAsset::register($this);
         }else {
             $cars = Cars::find()->where($all_filtering)->andWhere($price_filtering)->all();
         }
-        foreach($cars as $car){echo
-        '<div class="car">
-            <div class="main-heading"><h2 style="margin-left: 2%; padding-top: 15px">Sportback 40 TFSI NAVI+ UPE 47.228,59</h2></div>
-            <div class="picture"></div>
-            <div class="cars_content">
-                <div class="row" style="margin: 0">
-                    <div class="col-sm-3">
-                        <h2 style="margin-block-start: 0!important;margin: 0!important;height: 40px">'?><?= $car->price ?><?='</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>'?><?= $car->engine_power ?><?='</p></div>
-                    <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>'?><?= $car->dors ?><?='</p></div>
-                    <div class="col-sm-4" style="border-bottom: 1px solid grey"><p>'?><?= $car->gearing_type ?><?='</p></div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4" style="margin-right: 2%""><p>'?><?= $car->fuel_type ?><?='</p></div>
-                    <div class="col-sm-4" style="margin-right: 2%""><p>'?><?= $car->seats ?><?='</p></div>
-                    <div class="col-sm-4">'?><?= $car->year?><?='</div>
-                </div>
-<!--                <div class="row">-->
-<!--                    <div class="col-sm-4"></div>-->
-<!--                    <div class="col-sm-4"></div>-->
-<!--                    <div class="col-sm-4"></div>-->
-<!--                </div>-->
-            </div>
-        </div>';}
-        ?>
+        if(count($cars)==0){
+            echo '<h1>No cars match your filters<h1>';
+        }else{
+            foreach($cars as $car){echo
+                
+                '<a href="/sola-avto-stran/yii-appli/frontend/web/index.php?r=site%2Fcar_info&id='?><?=$car->id?><?='"><div class="car">
+                    <div class="main-heading"><h2 style="margin-left: 2%; padding-top: 15px">Sportback 40 TFSI NAVI+ UPE 47.228,59</h2></div>
+                    <div class="picture"></div>
+                    <div class="cars_content">
+                        <div class="row" style="margin: 0">
+                            <div class="col-sm-3">
+                                <h2 style="margin-block-start: 0!important;margin: 0!important;height: 40px">'?><?= $car->price ?><?='</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>'?><?= $car->engine_power ?><?='</p></div>
+                            <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>'?><?= $car->dors ?><?='</p></div>
+                            <div class="col-sm-4" style="border-bottom: 1px solid grey"><p>'?><?= $car->gearing_type ?><?='</p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4" style="margin-right: 2%""><p>'?><?= $car->fuel_type ?><?='</p></div>
+                            <div class="col-sm-4" style="margin-right: 2%""><p>'?><?= $car->seats ?><?='</p></div>
+                            <div class="col-sm-4">'?><?= $car->year?><?='</div>
+                        </div>'?>
+                        <?php
+                        if(Yii::$app->user->isGuest){
+                        }else{
+                            echo 
+                                '<div class="row" style="background-color:yellow">
+                                    <div class="col-sm-12">'?><?=$car->Booking?><?='</div>
+                                </div>';
+                        }
+                        ?>
+                <?='</div>
+            </div></a>';}
+        }?>
     </div>
 </div>

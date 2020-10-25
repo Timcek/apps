@@ -22,7 +22,7 @@ $this->title = 'Member Login';
         <div class="lines">
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-                <?= $form->field($model, 'email',['template'=>"{input}\n{hint}\n{error}"])->textInput(['autofocus' => true])->error(["style"=>"margin-left:15px; color:grey;padding-bottom:9px"])->input('email', ['placeholder' => " Email"]) ?>
+                <?= $form->field($model, 'username',['template'=>"{input}\n{hint}\n{error}"])->textInput(['autofocus' => true])->error(["style"=>"margin-left:15px; color:grey;padding-bottom:9px"])->input('username', ['placeholder' => "Username"]) ?>
 
                 <?= $form->field($model, 'password',['template'=>"{input}\n{hint}\n{error}"])->passwordInput()->error(["style"=>"margin-left:15px; color:grey; padding-bottom:15px"])->input('password', ['placeholder' => "Password"]) ?>
 <!--                <?//= $form->field($model, 'rememberMe')->checkbox() ?>-->

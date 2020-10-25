@@ -30,6 +30,11 @@ SignupAsset::register($this);
     </div>
     <div class="row">
         <div class="col-lg-12" >
+            <?= $form->field($model, 'username',['template'=>"{input}\n{hint}\n{error}"])->input('username', ['placeholder' => " Username"]) ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12" >
             <?= $form->field($model, 'email',['template'=>"{input}\n{hint}\n{error}"])->input('email', ['placeholder' => " Email"]) ?>
         </div>
     </div>

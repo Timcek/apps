@@ -155,6 +155,10 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
+    public function actionCar_info(){
+        return $this->render("car_info");
+    }
+
     /**
      * Signs user up.
      *

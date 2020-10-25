@@ -37,6 +37,7 @@ class Cars extends ActiveRecord
         return [
             [['car_company', 'model', 'year'], 'required'],
             [['year'], 'string'],
+            [["id"],"integer"],
             [['car_company'], 'string', 'max' => 255],
             [['model'], 'string', 'max' => 50],
             [["price"],"string"],
