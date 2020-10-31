@@ -22,24 +22,25 @@ car_infoAsset::register($this);
         <h5>fuel type: <?= $informations_of_car->fuel_type?></h5>
     </div>
 </div>
-<div style="width: 80%; margin:50px auto; background-color:#f2f0f0">
+<?php 
+if(Yii::$app->user->isGuest){
+}else{
+echo    
+'<div style="width: 80%; margin:50px auto; background-color:#f2f0f0">
     <div class="row">
         <div class="col-sm-4">Booking date</div>
         <div class="col-sm-4">How long</div>
         <div class="col-sm-4">User who rented it</div>
-    </div>
-    <?php $history=BookingHistory::findAll(["id"=>$_GET["id"]]);
+    </div>'?>
+    <?php 
+    $history=BookingHistory::findAll(["id"=>$_GET["id"]]);
     foreach($history as $hist_car){
         echo 
         '<div class="row">
             <div class="col-sm-4">'?><?=$hist_car->booking_date?><?='</div>
             <div class="col-sm-4">'?><?=$hist_car->booking_time_days?><?=' days</div>
-            <div class="col-sm-4">'?><?=$hist_car->user?><?='</div>
+        <div class="col-sm-4">'?><?=$hist_car->user?><?='</div>
         </div>';
     }
-    
     ?>
-    
-</div>
-
-
+<?='</div>';}?>
