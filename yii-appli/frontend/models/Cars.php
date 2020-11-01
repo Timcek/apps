@@ -18,6 +18,7 @@ use yii\db\ActiveRecord;
  * @property int $seats
  * @property string $fuel_type
  * @property int $engine_power
+ * @property string $user
  */
 class Cars extends ActiveRecord
 {

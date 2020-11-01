@@ -1,0 +1,4 @@
+function delete_car(x){
+    $("body").css("overflow","hidden");
+    $(".alert").replaceWith('<div style="position:absolute;height:100%;width:100%;left:0;right:0;top:0;background:rgba(128,128,128,0.5);z-index:1500"><div style="height:300px;width:600px; background-color:white;margin-left:auto;margin-right:auto;margin-top:100px"><h3 style="text-align: center;padding-top:20px">Do you realy want to delete this car?</h3><a href="/sola-avto-stran/yii-appli/frontend/web/index.php?r=site%2Fdelete_car&param1='+x+'">yes</a><a href="/sola-avto-stran/yii-appli/frontend/web/index.php?r=site%2Fyour_cars" style="margin-left:200px">no</a></div></div>')
+}

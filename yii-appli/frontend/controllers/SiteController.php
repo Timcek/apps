@@ -18,6 +18,8 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\User;
+use frontend\models\Add_new_car;
+
 /**
  * Site controller
  */
@@ -146,6 +148,35 @@ class SiteController extends Controller
             ]);
         }
     }
+
+    public function actionAdd_cars(){
+        $model = new Add_new_car();
+
+        if($model->load(Yii::$app->request->post())){
+            $model->price="€".$model->price;
+            $model->Booking="not_booked";
+            $model->user=Yii::$app->user->identity->username;
+            $model->save();
+            $model=new Add_new_car();
+            return $this->render("add_cars", ["model"=>$model]);
+        }else{
+            return $this->render("add_cars", ["model"=>$model]);
+        }
+    }
+
+//this metod renders all of my cars
+    public function actionYour_cars(){
+        
+        return $this->render("your_cars");
+
+    }
+//and this method deletes a car that we want to delete in your cars
+    public function actionDelete_car(){
+        $car = Cars::findOne(["id"=>Yii::$app->request->get("param1")]);
+        $car->delete();
+        $this->redirect(array('site/your_cars'));
+    }
+
 
     /**
      * Displays about page.

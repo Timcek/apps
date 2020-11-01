@@ -45,7 +45,9 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
-        $menuItems[] = ["label"=>"Update profile", "url"=>["/site/update_profile"]];    
+        $menuItems[] = ["label"=>"Update profile", "url"=>["/site/update_profile"]];   
+        $menuItems[] = ["label"=>"Add car", "url"=>["/site/add_cars"]]; 
+        $menuItems[] = ["label"=>"Your cars", "url"=>["/site/your_cars"]];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(

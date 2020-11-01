@@ -26,7 +26,7 @@ display_carsAsset::register($this);
 
         <?=Html::a('Pile', ['/site/about', 'id' => "burek"])?>
         <?= $form->field($model, 'year',['template'=>"{input}\n{hint}\n{error}"])->dropDownList($years) ?>
-        <?= $form->field($model, "gearing_type",['template'=>"{input}\n{hint}\n{error}"])->dropDownList(["all"=>"All","manual"=>"Manual","Automatic"=>"Automatic"])?>
+        <?= $form->field($model, "gearing_type",['template'=>"{input}\n{hint}\n{error}"])->dropDownList(["all"=>"All","manual"=>"Manual","automatic"=>"Automatic"])?>
         <p>Dors</p>
         <?= $form->field($model, "dors",['template'=>"{input}\n{hint}\n{error}"])->textInput(["type"=>"number"])?>
         <p>Seats</p>
