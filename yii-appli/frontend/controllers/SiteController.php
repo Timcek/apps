@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\Cars;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -10,10 +11,14 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use frontend\models\update_profil;
+use frontend\models\update_profil_username;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\User;
+use frontend\models\Add_new_car;
 
 /**
  * Site controller
@@ -74,8 +79,17 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $this->layout ="index";
+        $model = new Cars();
+        if($model->load(Yii::$app->request->post())){
+            //Yii::$app->session->setFlash('success', $model->price." ".$model->year);
+            $this->layout="display_cars_layout";
+           return $this->render('display_cars',['model' => $model]);
+        }
+
+        return $this->render('index',['model' => $model]);
     }
+    
 
     /**
      * Logs in a user.
@@ -135,6 +149,35 @@ class SiteController extends Controller
         }
     }
 
+    public function actionAdd_cars(){
+        $model = new Add_new_car();
+
+        if($model->load(Yii::$app->request->post())){
+            $model->price="€".$model->price;
+            $model->Booking="not_booked";
+            $model->user=Yii::$app->user->identity->username;
+            $model->save();
+            $model=new Add_new_car();
+            return $this->render("add_cars", ["model"=>$model]);
+        }else{
+            return $this->render("add_cars", ["model"=>$model]);
+        }
+    }
+
+//this metod renders all of my cars
+    public function actionYour_cars(){
+        
+        return $this->render("your_cars");
+
+    }
+//and this method deletes a car that we want to delete in your cars
+    public function actionDelete_car(){
+        $car = Cars::findOne(["id"=>Yii::$app->request->get("param1")]);
+        $car->delete();
+        $this->redirect(array('site/your_cars'));
+    }
+
+
     /**
      * Displays about page.
      *
@@ -143,6 +186,63 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionCar_info(){
+        return $this->render("car_info");
+    }
+
+    public function actionUpdate_profile(){
+        $model = new update_profil();
+        $change_username_model = new update_profil_username();
+        $reset_password = new PasswordResetRequestForm();
+        if($model->load(Yii::$app->request->post())){
+            if(Yii::$app->user->identity->email==$model->email){
+                if($model->check_if_in_db()){//checks if the new email is already in database (if not, returns true)
+                    $user = User::findOne(["email"=>$model->email]);//we find user with old email and replace it
+                    $user->email=$model->email_update;
+                    $user->save();
+                    Yii::$app->session->setFlash('success', 'You have successfully changed your email address.');
+                    $model= new update_profil();
+                    return $this->render("update_profile", ["model"=>$model, "model2"=>$change_username_model,"model3"=>$reset_password]);
+                }else{
+                    return $this->render("update_profile", ["model"=>$model, "model2"=>$change_username_model,"model3"=>$reset_password]);
+                }
+            }else{
+                $model->addError("email","This is not your current email.");
+                $model->check_if_in_db();
+                return $this->render("update_profile", ["model"=>$model, "model2"=>$change_username_model,"model3"=>$reset_password]);
+            }
+        }elseif($change_username_model->load(Yii::$app->request->post())){
+            if(Yii::$app->user->identity->username==$change_username_model->username){
+                if($change_username_model->check_if_in_db()){//checks if the new email is already in database (if not, returns true)
+                    $user = User::findOne(["username"=>$change_username_model->username]);//we find user with old email and replace it
+                    $user->username=$change_username_model->username_update;
+                    $user->save();
+                    Yii::$app->session->setFlash('success', 'You have successfully changed your username.');
+                    $change_username_model= new update_profil_username();
+                    return $this->render("update_profile", ["model"=>$model, "model2"=>$change_username_model,"model3"=>$reset_password]);
+                }else{
+                    return $this->render("update_profile", ["model"=>$model, "model2"=>$change_username_model,"model3"=>$reset_password]);
+                }
+            }else{
+                $change_username_model->addError("username","This is not your current username.");
+                $change_username_model->check_if_in_db();
+                return $this->render("update_profile", ["model"=>$model, "model2"=>$change_username_model,"model3"=>$reset_password]);
+            }
+        }else if($reset_password->load(Yii::$app->request->post()) && $reset_password->validate()){
+            if ($reset_password->sendEmail()) {
+                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+
+                return $this->render("update_profile", ["model"=>$model, "model2"=>$change_username_model,"model3"=>$reset_password]);
+            } else {
+                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
+                return $this->render("update_profile", ["model"=>$model, "model2"=>$change_username_model,"model3"=>$reset_password]);
+            }
+            
+        }else{
+            return $this->render("update_profile", ["model"=>$model, "model2"=>$change_username_model,"model3"=>$reset_password]);
+        }
     }
 
     /**

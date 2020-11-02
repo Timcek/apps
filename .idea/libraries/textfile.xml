@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/yii-appli/vendor/swiftmailer/swiftmailer/tests/_samples/files/textfile.zip!/" />
     </CLASSES>
+    <JAVADOC />
     <SOURCES />
   </library>
 </component>
