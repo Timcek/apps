@@ -4,8 +4,7 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model Cars */
 
-use frontend\models\Cars;
-use yii\widgets\Pjax;
+
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use frontend\assets\IndexAsset;
@@ -17,24 +16,12 @@ $this->title = 'Najem avtomobilov';
     <?php $form = ActiveForm::begin(['id' => 'form-search']); ?>
     <div class="wrapping">
     <div class="row">
-        <?php Pjax::begin(['id' => 'second_form_pjax'])?>
         <div class="col-sm-6">
-            <?php
-            $models = ["Audi"=>["A1"=>"A1","A2"=>"A2","A3"=>"A3","A4"=>"A4","A5"=>"A5","A6"=>"A6","A7"=>"A7","A8"=>"A8"],"BMW"=>["Serija1"=>"Serija1","Serija2"=>"Serija2","Serija3"=>"Serija3"]];
-            $car_com ="Audi";
-            if(isset($_GET["name"])) {
-                $car_com= $_GET["name"];
-            }
-            ?>
             <?= $form->field($model, 'car_company',['template'=>"{input}\n{hint}\n{error}"])->dropDownList(["Audi"=>"Audi","BMW"=>"BMW","Mercedes-benz"=>"Mercedes-benz"],["class"=>"form-control company","selected",'style'=>'border:0; border-bottom:1px solid black; border-radius:0;'])->label('')?>
         </div>
         <div class="col-sm-6">
-            <?= $form->field($model, 'model',['template'=>"{input}\n{hint}\n{error}"])->dropDownList($models[$car_com],['style'=>'border:0; border-bottom:1px solid black; border-radius:0;']) ?>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script>function changediv(c){$('.company option[value='+c+']').replaceWith('<option value='+c+' selected>'+c+'</option>')};</script>
-            <script type="text/javascript">changediv(<?php echo(json_encode($car_com))?>)</script>
+            <?= $form->field($model, 'model',['template'=>"{input}\n{hint}\n{error}"])->dropDownList(["50"=>"50","60"=>"60","80"=>"80","90"=>"90","100"=>"100","200"=>"200","A1"=>"A1","A2"=>"A2","A3"=>"A3","A4"=>"A4","A4 Allroad"=>"A4 Allroad","A5"=>"A5","A6"=>"A6","A6 Allroad"=>"A6 Allroad","A7"=>"A7","A8"=>"A8","Co"=>"Coupe","Cabriolet"=>"Cabriolet","E-Tron"=>"E-Tron","Q1"=>"Q1","Q2"=>"Q2","Q3"=>"Q3","Q5"=>"Q5","Q7"=>"Q7","Q8"=>"Q8","R8"=>"R8","RS2"=>"RS2","RS3"=>"RS3","RS4"=>"RS4","RS5"=>"RS5","RS6"=>"RS6","RS7"=>"RS7","RS Q3"=>"RS Q3","RS Q5"=>"RS Q5","RS Q8"=>"RS Q8","S1"=>"S1","S2"=>"S2","S3"=>"S3","S4"=>"S4","S5"=>"S5","S6"=>"S6","S7"=>"S7","S8"=>"S8","SQ2"=>"SQ2","SQ5"=>"SQ5","SQ7"=>"SQ7","SQ8"=>"SQ8","TT"=>"TT","V8"=>"V8"],['style'=>'border:0; border-bottom:1px solid black; border-radius:0;']) ?>         
         </div>
-        <?php Pjax::end() ?>
     </div>
     <?php
     $years=["First_registration"=>"First registration"];
