@@ -5,6 +5,8 @@
 use frontend\models\Cars;
 use frontend\models\BookingHistory;
 use frontend\assets\car_infoAsset;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 car_infoAsset::register($this);
 
 ?>
@@ -25,8 +27,21 @@ car_infoAsset::register($this);
 <?php 
 if(Yii::$app->user->isGuest){
 }else{
-echo    
-'<div style="width: 80%; margin:50px auto; background-color:#f2f0f0">
+if(Cars::findOne(["id"=>$_GET["id"]])->Booking=="not_booked"){
+echo  '<div>'?>
+<?php $form = ActiveForm::begin() ?>
+    <?= $form->field($model, 'booking_time_days') ?>
+
+    <div class="form-group">
+        <div class="col-lg-offset-1 col-lg-11">
+            <?= Html::submitButton('Book', ['class' => 'btn btn-primary']) ?>
+        </div>
+    </div>
+<?php ActiveForm::end() ?>
+<?php echo '</div>';}else{
+    echo '<div style="background-color: yellow;width: 80%;margin:50px auto;"><h2>This car is already booked.</h2></div>';
+}?>
+<?='<div style="width: 80%; margin:50px auto; background-color:#f2f0f0">
     <div class="row">
         <div class="col-sm-4">Booking date</div>
         <div class="col-sm-4">How long</div>

@@ -19,6 +19,8 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\User;
 use frontend\models\Add_new_car;
+use frontend\models\Book_car;
+use frontend\models\BookingHistory;
 
 /**
  * Site controller
@@ -189,7 +191,22 @@ class SiteController extends Controller
     }
 
     public function actionCar_info(){
-        return $this->render("car_info");
+        $model=new BookingHistory();
+        if($model->load(Yii::$app->request->post())){
+            $model->id=Yii::$app->request->get("id");
+            $model->user=Yii::$app->user->identity->username;
+            //$date =gettype(date("Y/m/d"));
+            $model->booking_date=date("Y/m/d");
+
+            $car = Cars::findOne(["id"=>$_GET["id"]]);
+            $car->Booking="booked";
+            $car->save();
+
+            $model->save();
+            $model=new BookingHistory();
+            return $this->render("car_info",["model"=>$model]);
+        }
+        return $this->render("car_info",["model"=>$model]);
     }
 
     public function actionUpdate_profile(){
