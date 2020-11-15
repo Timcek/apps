@@ -19,7 +19,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\User;
 use frontend\models\Add_new_car;
-
+use frontend\models\TempPhotos;
 /**
  * Site controller
  */
@@ -151,14 +151,49 @@ class SiteController extends Controller
 
     public function actionAdd_cars(){
         $model = new Add_new_car();
-
-        if($model->load(Yii::$app->request->post())){
+        if(isset($_GET["photo"])){
+            $croppedImage = $_FILES["cropped_image"];
+            $to_be_upload = $croppedImage["tmp_name"];
+            do {
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 0; $i < 15; $i++) {
+                    $randomString .= $characters[rand(0, $charactersLength - 1)];
+                }
+            } while (TempPhotos::findOne(["temp_photo"=>$randomString])!=null);
+            $new_file="C:/xampp/htdocs/sola-avto-stran/yii-appli/frontend/web/assets/temp/".$randomString.".png";
+            rename($to_be_upload,$new_file);
+            $model_temp = new TempPhotos();
+            $model_temp->temp_photo= $randomString;
+            $model_temp->save();
+            $_SESSION["temp_photo_loc"] = $randomString;
+            
+        }elseif($model->load(Yii::$app->request->post())){
             $model->price="€".$model->price;
             $model->Booking="not_booked";
             $model->user=Yii::$app->user->identity->username;
+            if(isset($_SESSION['temp_photo_loc'])){
+            do {
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 0; $i < 15; $i++) {
+                    $randomString .= $characters[rand(0, $charactersLength - 1)];
+                }
+            } while (Add_new_car::findOne(["car_photo"=>$randomString])!=null);
+            $model->car_photo=$randomString;
+            $new_file = "C:/xampp/htdocs/sola-avto-stran/yii-appli/frontend/web/assets/car_photos/".$randomString.".png";
+            rename("C:/xampp/htdocs/sola-avto-stran/yii-appli/frontend/web/assets/temp/".$_SESSION["temp_photo_loc"].".png",$new_file);
             $model->save();
-            $model=new Add_new_car();
-            return $this->render("add_cars", ["model"=>$model]);
+            $temporery = TempPhotos::findOne((["temp_photo"=>$_SESSION['temp_photo_loc']]));
+            $temporery->delete();
+            unset($_SESSION['temp_photo_loc']);
+            }else{
+                $model->car_photo="no_photo";
+                $model->save();
+            }
+            $this->refresh();
         }else{
             return $this->render("add_cars", ["model"=>$model]);
         }
@@ -166,9 +201,7 @@ class SiteController extends Controller
 
 //this metod renders all of my cars
     public function actionYour_cars(){
-        
         return $this->render("your_cars");
-
     }
 //and this method deletes a car that we want to delete in your cars
     public function actionDelete_car(){
@@ -244,6 +277,9 @@ class SiteController extends Controller
             return $this->render("update_profile", ["model"=>$model, "model2"=>$change_username_model,"model3"=>$reset_password]);
         }
     }
+
+
+
 
     /**
      * Signs user up.

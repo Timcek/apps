@@ -19,6 +19,7 @@ use Yii;
  * @property string $fuel_type
  * @property string|null $Booking
  * @property string $user
+ * @property string $car_photo
  */
 class Add_new_car extends \yii\db\ActiveRecord
 {
