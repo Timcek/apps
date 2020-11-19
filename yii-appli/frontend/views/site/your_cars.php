@@ -28,8 +28,8 @@ display_carsAsset::register($this);
                             <div class="col-sm-4" style="border-bottom: 1px solid grey"><p>'?><?= $car->gearing_type ?><?='</p></div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4" style="margin-right: 2%""><p>'?><?= $car->fuel_type ?><?='</p></div>
-                            <div class="col-sm-4" style="margin-right: 2%""><p>'?><?= $car->seats ?><?='</p></div>
+                            <div class="col-sm-4" style="margin-right: 2%"><p>'?><?= $car->fuel_type ?><?='</p></div>
+                            <div class="col-sm-4" style="margin-right: 2%"><p>'?><?= $car->seats ?><?='</p></div>
                             <div class="col-sm-4">'?><?= $car->year?><?='</div>
                         </div>
                     </div>

@@ -168,7 +168,7 @@ class SiteController extends Controller
             $model_temp->temp_photo= $randomString;
             $model_temp->save();
             $_SESSION["temp_photo_loc"] = $randomString;
-            
+            $_SESSION["incomming"] = "yes";
         }elseif($model->load(Yii::$app->request->post())){
             $model->price="€".$model->price;
             $model->Booking="not_booked";
@@ -193,8 +193,25 @@ class SiteController extends Controller
                 $model->car_photo="no_photo";
                 $model->save();
             }
+            $_SESSION["adding"]= "jep";
             $this->refresh();
         }else{
+            if(isset($_SESSION['temp_photo_loc'])&& !isset($_SESSION["incomming"])){
+                unset($_SESSION['temp_photo_loc']);
+                unset($_SESSION['select_change']);
+                //unset($_SESSION["incomming"]);
+            }else{
+                if(isset($_SESSION["adding"])){
+                    unset($_SESSION["adding"]);
+                    unset($_SESSION['select_change']);
+                }elseif(isset($_SESSION["fist_time"])){
+                    unset($_SESSION["incomming"]);
+                    unset($_SESSION["fist_time"]);
+                    $_SESSION["select_change"] = "change";
+                }else{
+                    $_SESSION["fist_time"]="first";
+                }
+            }
             return $this->render("add_cars", ["model"=>$model]);
         }
     }

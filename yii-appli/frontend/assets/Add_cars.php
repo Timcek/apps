@@ -12,6 +12,7 @@ class Add_cars extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        "css/add_cars.css"
     ];
     public $js = [
         "js/add_cars.js"
