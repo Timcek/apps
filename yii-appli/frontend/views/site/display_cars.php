@@ -77,7 +77,7 @@ display_carsAsset::register($this);
             foreach($cars as $car){echo
                 
                 '<a href="/sola-avto-stran/yii-appli/frontend/web/index.php?r=site%2Fcar_info&id='?><?=$car->id?><?='"><div class="car">
-                    <div class="main-heading"><h2 style="margin-left: 2%; padding-top: 15px">Sportback 40 TFSI NAVI+ UPE 47.228,59</h2></div>
+                    <div class="main-heading"><h2 style="margin-left: 2%; padding-top: 15px">'?><?php echo $car->car_company . " " . $car->model . " " . $car->user;?><?='</h2></div>
                     <div class="picture"></div>
                     <div class="cars_content">
                         <div class="row" style="margin: 0">

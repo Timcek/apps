@@ -17,6 +17,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\car_info;
 use common\models\User;
 use frontend\models\Add_new_car;
 use frontend\models\TempPhotos;
@@ -237,9 +238,53 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-
+    /*$model->user = Yii::$app->user->identity->username;
+                        $model->car_id=$_GET["id"];
+                        $model->save();
+                        return $this->refresh();
+                    }
+*/
     public function actionCar_info(){
-        return $this->render("car_info");
+        $model = new car_info();
+        if($model->load(Yii::$app->request->post())){
+            $books_in_history = car_info::find()->where(["car_id"=>$_GET["id"]])->andWhere(['>=', 'booking_date', date("Y-m-d")])->all();
+            if(count($books_in_history)!=0 && $model->booking_date>=date("Y-m-d")&&$model->booking_date<=$model->booking_date_until){
+                $not_jet=true;
+                foreach($books_in_history as $carsh){
+                    if($carsh->booking_date>=$model->booking_date&&$carsh->booking_date<=$model->booking_date_until){
+                        $_SESSION["error"]="Car is already reserved from ".$carsh->booking_date . " to " .$carsh->booking_date_until;
+                        return $this->refresh();
+                    }elseif($carsh->booking_date_until>=$model->booking_date&&$carsh->booking_date_until<=$model->booking_date_until){
+                        $_SESSION["error"]="Car is already reserved from ".$carsh->booking_date . " to " .$carsh->booking_date_until;
+                        return $this->refresh();
+                    }elseif($carsh->booking_date<=$model->booking_date&&$carsh->booking_date_until>=$model->booking_date_until){
+                        $_SESSION["error"]="Car is already reserved from ".$carsh->booking_date . " to " .$carsh->booking_date_until;
+                        return $this->refresh();
+                    }else {
+                       $not_jet=false;
+                    }
+                }
+                if(!$not_jet){
+                    $model->user = Yii::$app->user->identity->username;
+                    $model->car_id=$_GET["id"];
+                    $model->save();
+                    return $this->refresh();
+                }
+            }else{
+                if($model->booking_date>=date("Y/m/d")){
+                    return $this->refresh();
+                }elseif(!$model->booking_date<=$model->booking_date_until){
+                     return $this->refresh();
+                }else{
+                    $model->user = Yii::$app->user->identity->username;
+                    $model->car_id=$_GET["id"];
+                    $model->save();
+                    return $this->refresh();
+                }
+            }
+        }else{
+            return $this->render("car_info", ["model"=>$model]);
+        }
     }
 
     public function actionUpdate_profile(){

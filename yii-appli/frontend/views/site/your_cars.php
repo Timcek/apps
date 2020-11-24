@@ -14,7 +14,7 @@ display_carsAsset::register($this);
 
     foreach($my_cars as $car){
         echo '<div class="car">
-                    <div class="main-heading"><h2 style="margin-left: 2%; padding-top: 15px; display:inline-block">Sportback 40 TFSI NAVI+ UPE 47.228,59</h2><div style="float: right;width:33px;height:33px;padding-top:15px"><a onclick=delete_car('?><?=$car->id?><?=')>x</a></div></div>
+                    <div class="main-heading"><h2 style="margin-left: 2%; padding-top: 15px; display:inline-block">'?><?php echo $car->car_company . " " . $car->model . " " . $car->user;?><?='</h2><div style="float: right;width:33px;height:33px;padding-top:15px"><a onclick=delete_car('?><?=$car->id?><?=')>x</a></div></div>
                     <div class="picture"></div>
                     <div class="cars_content">
                         <div class="row" style="margin: 0">

@@ -47,6 +47,7 @@ class Cars extends ActiveRecord
             [["seats"],"integer"],
             [["fuel_type"],"string"],
             [["engine_power"],"integer"],
+            [["Booking"],"string"],
         ];
     }
 

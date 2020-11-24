@@ -1,7 +1,8 @@
 <?php 
 /* @var $model Cars */
 
-
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 use frontend\models\Cars;
 use frontend\models\BookingHistory;
 use frontend\assets\car_infoAsset;
@@ -25,20 +26,48 @@ car_infoAsset::register($this);
 <?php 
 if(Yii::$app->user->isGuest){
 }else{
-echo    
-'<div style="width: 80%; margin:50px auto; background-color:#f2f0f0">
+    if($informations_of_car->Booking=="not_booked"){
+        echo 
+        '<div style="width: 80%;'?><?php if(isset($_SESSION["error"])){echo 'margin:50px auto 0 auto;';}else{echo ' margin:50px auto;';}?><?='background-color:#f2f0f0">
+            <div class="row">'?>
+            <?php $form = ActiveForm::begin(['id' => 'form-book']); ?>
+                <?='<div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6"><h3 style="margin-left:13px;">Start date</h3></div>
+                        <div class="col-sm-6"><h3>End date</h3></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">'?><?= $form->field($model,"booking_date")->input("date",["style"=>"margin-left:13px;"])->label("")->error(["style"=>"margin-left:13px"])?><?='</div>
+                        <div class="col-sm-6">'?><?= $form->field($model,"booking_date_until")->input("date")->label("")?><?='</div>
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-4">'?>
+                    <?= Html::submitButton('Book car', ['class' => 'btn btn-primary', 'name' => 'search-button', "style"=>"background-color:#78B0B7; border:0; width:100%; border-radius:0; line-height:35px; margin-top:39px"]) ?>
+                <?='</div>'?>
+            <?php ActiveForm::end(); ?>
+            <?='</div>
+        </div>  '?><?php if(isset($_SESSION["error"])){
+            echo '<div style="width: 80%; margin:0 auto; background-color:#f2f0f0"><h3 style="background-color:#f22e62; margin-top:0;line-height:40px">'?><?=$_SESSION["error"]?><?='</h3></div>';
+            unset($_SESSION["error"]);
+        };
+    }
+
+    echo    
+    '<div style="width: 80%; margin:50px auto; background-color:#f2f0f0">
     <div class="row">
         <div class="col-sm-4">Booking date</div>
-        <div class="col-sm-4">How long</div>
+        <div class="col-sm-4">Until</div>
         <div class="col-sm-4">User who rented it</div>
     </div>'?>
     <?php 
-    $history=BookingHistory::findAll(["id"=>$_GET["id"]]);
+    $history=BookingHistory::findAll(["car_id"=>$_GET["id"]]);
+
     foreach($history as $hist_car){
         echo 
         '<div class="row">
             <div class="col-sm-4">'?><?=$hist_car->booking_date?><?='</div>
-            <div class="col-sm-4">'?><?=$hist_car->booking_time_days?><?=' days</div>
+            <div class="col-sm-4">'?><?=$hist_car->booking_date_until?><?=' days</div>
         <div class="col-sm-4">'?><?=$hist_car->user?><?='</div>
         </div>';
     }
