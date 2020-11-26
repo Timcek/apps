@@ -21,6 +21,8 @@ use frontend\models\car_info;
 use common\models\User;
 use frontend\models\Add_new_car;
 use frontend\models\TempPhotos;
+use frontend\models\BookingHistory;
+
 /**
  * Site controller
  */

@@ -6,6 +6,8 @@ use yii\bootstrap\ActiveForm;
 use frontend\models\Cars;
 use frontend\models\BookingHistory;
 use frontend\assets\car_infoAsset;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 car_infoAsset::register($this);
 
 ?>
