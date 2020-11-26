@@ -1,0 +1,24 @@
+h4{
+    color: #636564;
+}
+
+p{
+    color: #616161;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a{
+    text-decoration: none!important ;
+}
+
+span{
+    color: #0C090A;
+    font-weight: 1000;
+}
+
+h2{
+    margin-top: 0;
+    margin-block-start: 0!important;
+    color: #212121;
+    font-family: 'Titillium Web', sans-serif;
+}

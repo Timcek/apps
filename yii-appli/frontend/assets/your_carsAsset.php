@@ -9,6 +9,7 @@ class your_carsAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        "css/your_cars.css"
     ];
     public $js = [
         "js/your_cars.js"

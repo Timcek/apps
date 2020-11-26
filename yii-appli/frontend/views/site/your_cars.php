@@ -8,13 +8,14 @@ use frontend\controllers\SiteController;
 
 display_carsAsset::register($this);
 ?>
-
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
 <?php
     $my_cars = Cars::find()->where(["user"=>Yii::$app->user->identity->username])->all();
 
     foreach($my_cars as $car){
         echo '<div class="car">
-                    <div class="main-heading"><h2 style="margin-left: 2%; padding-top: 15px; display:inline-block">'?><?php echo $car->car_company . " " . $car->model . " " . $car->user;?><?='</h2><div style="float: right;width:33px;height:33px;padding-top:15px"><a onclick=delete_car('?><?=$car->id?><?=')>x</a></div></div>
+                    <div class="main-heading"><h2 style="margin-left: 2%; padding-top: 15px; display:inline-block">'?><?php echo $car->car_company . " " . $car->model;?><?='</h2><div style="cursor: pointer;float: right;width:33px;height:33px;padding-top:15px"><a onclick=delete_car('?><?=$car->id?><?=') style="color:black;">x</a></div></div>
                     <div class="picture"></div>
                     <div class="cars_content">
                         <div class="row" style="margin: 0">
@@ -23,14 +24,14 @@ display_carsAsset::register($this);
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>'?><?= $car->engine_power ?><?='</p></div>
-                            <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>'?><?= $car->dors ?><?='</p></div>
-                            <div class="col-sm-4" style="border-bottom: 1px solid grey"><p>'?><?= $car->gearing_type ?><?='</p></div>
+                            <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>Engine power: <span>'?><?= $car->engine_power ?><?='</span></p></div>
+                            <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>Number of dors: <span>'?><?= $car->dors ?><?='</span></p></div>
+                            <div class="col-sm-4" style="border-bottom: 1px solid grey"><p>Gearing type: <span>'?><?= $car->gearing_type ?><?='</span></p></div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4" style="margin-right: 2%"><p>'?><?= $car->fuel_type ?><?='</p></div>
-                            <div class="col-sm-4" style="margin-right: 2%"><p>'?><?= $car->seats ?><?='</p></div>
-                            <div class="col-sm-4">'?><?= $car->year?><?='</div>
+                            <div class="col-sm-4" style="margin-right: 2%"><p>Fuel type: <span>'?><?= $car->fuel_type ?><?='</span></p></div>
+                            <div class="col-sm-4" style="margin-right: 2%"><p>Number of seats: <span>'?><?= $car->seats ?><?='</span></p></div>
+                            <div class="col-sm-4"><p>First registration: <span>'?><?= $car->year?><?='</span></p></div>
                         </div>
                     </div>
             </div>';
