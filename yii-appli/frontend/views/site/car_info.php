@@ -6,12 +6,10 @@ use yii\bootstrap\ActiveForm;
 use frontend\models\Cars;
 use frontend\models\BookingHistory;
 use frontend\assets\car_infoAsset;
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 car_infoAsset::register($this);
 
 ?>
-<div style="width:80%; height:300px; background-color: #faf5f5; margin: 0 auto">
+<div style="width:80%; height:300px; background-color: #faf5f5; margin: 0 auto; <?php if(Yii::$app->user->isGuest){echo "margin-top: 20vh";}?>">
     <div style="width: 45%; height:300px; background-color:red; display: inline-block"></div>
     <div style="width: 45%; float: right">
     <?php $informations_of_car = Cars::findOne(["id"=>$_GET["id"]])?>
