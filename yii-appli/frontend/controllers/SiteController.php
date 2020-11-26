@@ -247,14 +247,15 @@ class SiteController extends Controller
     public function actionCar_info(){
         $model = new car_info();
         if($model->load(Yii::$app->request->post())){
-            $books_in_history = car_info::find()->where(["car_id"=>$_GET["id"]])->andWhere(['>=', 'booking_date', date("Y-m-d")])->all();
-            if(count($books_in_history)!=0 && $model->booking_date>=date("Y-m-d")&&$model->booking_date<=$model->booking_date_until){
+            $books_in_history = car_info::find()->where(["and","car_id=".intval($_GET["id"]),["or",['>=', 'booking_date', date("Y-m-d")],['>=', 'booking_date_until', date("Y-m-d")]]])->all();
+            if(count($books_in_history)!=0 && $model->booking_date>=date("Y-m-d")&&$model->booking_date<$model->booking_date_until){
                 $not_jet=true;
                 foreach($books_in_history as $carsh){
                     if($carsh->booking_date>=$model->booking_date&&$carsh->booking_date<=$model->booking_date_until){
                         $_SESSION["error"]="Car is already reserved from ".$carsh->booking_date . " to " .$carsh->booking_date_until;
                         return $this->refresh();
                     }elseif($carsh->booking_date_until>=$model->booking_date&&$carsh->booking_date_until<=$model->booking_date_until){
+                        //datum katerega izberemo se začne z datumom ki je med tem datumom in konča z datumom, ki je zunaj $carsh datuma
                         $_SESSION["error"]="Car is already reserved from ".$carsh->booking_date . " to " .$carsh->booking_date_until;
                         return $this->refresh();
                     }elseif($carsh->booking_date<=$model->booking_date&&$carsh->booking_date_until>=$model->booking_date_until){
@@ -271,10 +272,12 @@ class SiteController extends Controller
                     return $this->refresh();
                 }
             }else{
-                if($model->booking_date>=date("Y/m/d")){
+                if(!($model->booking_date<$model->booking_date_until)){
+                    $_SESSION["error"] = "End date is smaller than Start date.";
                     return $this->refresh();
-                }elseif(!$model->booking_date<=$model->booking_date_until){
-                     return $this->refresh();
+                }else if($model->booking_date<date("Y-m-d")){
+                    $_SESSION["error"] = "Start date is smaller than today's date.";
+                    return $this->refresh();
                 }else{
                     $model->user = Yii::$app->user->identity->username;
                     $model->car_id=$_GET["id"];

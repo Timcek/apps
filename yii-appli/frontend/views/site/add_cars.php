@@ -31,7 +31,7 @@ use yii\widgets\Pjax;
     </div>
     <div class="small-sceleton">
         <div class="names">
-            <h4 style="margin-bottom: 114px">Year & price</h4>
+            <h4 style="margin-bottom: 114px">Year & price (per day)</h4>
         </div>
         <div class="all_forms">
             <?= $form->field($model, 'year',['template'=>"{input}\n{hint}\n{error}"])->error(["style"=>"margin-left:15px; color:grey"])->input('text', ['placeholder' => "Year"]) ?>
@@ -40,7 +40,7 @@ use yii\widgets\Pjax;
     </div>
     <div class="small-sceleton">
         <div class="names">
-            <h4 style="margin-bottom: 163px">Engine power, dors & seats</h4>
+            <h4 style="margin-bottom: 163px">Engine power (kW), dors & seats</h4>
         </div>
         <div class="all_forms">
             <?= $form->field($model, 'engine_power',['template'=>"{input}\n{hint}\n{error}"])->error(["style"=>"margin-left:15px; color:grey"])->input('text', ['placeholder' => "Engine power"]) ?>

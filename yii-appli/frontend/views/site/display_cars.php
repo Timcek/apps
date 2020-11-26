@@ -5,6 +5,7 @@
 use yii\helpers\Html;
 use frontend\models\Cars;
 use yii\bootstrap\ActiveForm;
+use frontend\models\car_info;
 use frontend\assets\display_carsAsset;
 display_carsAsset::register($this);
 
@@ -100,7 +101,12 @@ display_carsAsset::register($this);
                         }else{
                             echo 
                                 '<div class="row" style="background-color:yellow">
-                                    <div class="col-sm-12">'?><?=$car->Booking?><?='</div>
+                                    <div class="col-sm-12">'?><?php $books_in_history = car_info::find()->where(["car_id"=>$car->id])->andWhere(['<=', 'booking_date', date("Y-m-d")])->andWhere(['>=', 'booking_date', date("Y-m-d")])->all();
+                                    if($books_in_history!=null){
+                                        echo "booked in this moment but you can book it for later";
+                                    }else{
+                                        echo "Not booked currently";
+                                    }?><?='</div>
                                 </div>';
                         }
                         ?>

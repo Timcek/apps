@@ -11,6 +11,7 @@ use yii\db\ActiveRecord;
  * @property string $booking_date
  * @property int $booking_date_until 
  * @property string $user
+ * @property int $car_id 
  */
 class car_info extends ActiveRecord
 {
