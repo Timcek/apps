@@ -79,6 +79,13 @@ AppAsset::register($this);
             </h2>
         </div>
     </footer>
+    <style>
+        @media (max-width: 800px) {
+            .collapse {
+                display: none !important;
+            }
+        }
+    </style>
     <?php $this->endBody() ?>
     </body>
     </html>

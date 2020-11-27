@@ -292,6 +292,33 @@ class SiteController extends Controller
         }
     }
 
+    public function actionChange_car_info(){
+        $model = new Cars();
+        $use_this = false;
+        if($model->load(Yii::$app->request->post())){
+            $temporery_model = Cars::findOne(["id"=>$_GET["id"]]);
+            $temporery_model->car_company=$model->car_company;
+            $temporery_model->model=$model->model;
+            $temporery_model->year=$model->year;
+            $temporery_model->price="€".$model->price;
+            $temporery_model->gearing_type=$model->gearing_type;
+            $temporery_model->dors=$model->dors;
+            $temporery_model->seats=$model->seats;
+            $temporery_model->fuel_type=$model->fuel_type;
+            $temporery_model->engine_power=$model->engine_power;
+            $temporery_model->save();
+            return $this->refresh();
+        }else{
+            if(!$use_this){
+                $model = Cars::findOne(["id"=>$_GET["id"]]);
+                $model->price = intval(explode("€",$model->price)[1]);
+                return $this->render("change_car_info",["model"=>$model]);
+            }else{
+                return $this->render("change_car_info",["model"=>$model]);
+            }
+        }
+    }
+
     public function actionUpdate_profile(){
         $model = new update_profil();
         $change_username_model = new update_profil_username();

@@ -21,7 +21,7 @@ $this->title = 'About';
     }
 
     .container{
-        width: 60%;
+        width: 90%;
         min-width: 700px;
         max-width: 900px;
     }
