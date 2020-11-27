@@ -22,3 +22,23 @@ h2{
     color: #212121;
     font-family: 'Titillium Web', sans-serif;
 }
+
+.path_to_changeinfo{
+    background-color: #81523F;
+    color: white;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+    border-radius: 1.5rem;
+}
+
+.path_to_changeinfo:hover{
+    transition: 0.3s;
+    color:wheat;
+    box-shadow: 2px 3px 1px 0px #ccc!important;
+}
+
+/*2D2A32

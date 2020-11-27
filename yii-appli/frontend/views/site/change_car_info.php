@@ -6,11 +6,11 @@ change_car_infoAsset::register($this);
 
 ?>
 
-
+<link href="https://fonts.googleapis.com/css2?family=Texturina:ital,wght@1,200&display=swap" rel="stylesheet">
 <?php $form = ActiveForm::begin(['id' => 'filter']); ?>
 <div class="ogrodje">
     <h2>Update information of this car</h2>
-    <!--<h2>In the inputs listed below is stored the information of your car which you can change and update.</h2>-->
+    <h5>All of the cars infmation is located in the inputs below. If you want to change any of the information just enther the new info and click Change Information.</h5>
     <div class="forms">
         <div class="input-fild-change">
             <h4>Car company:</h4>
@@ -50,7 +50,7 @@ change_car_infoAsset::register($this);
             <?=$form->field($model,"engine_power",['template'=>"{input}\n{hint}\n{error}"])->textInput(["type"=>"number"])?>
         </div>    
     </div>
-    <?= Html::submitButton('Search', ['class' => 'btn btn-primary', 'name' => 'search-button',"style"=>"display:block;margin:0 auto 0 auto"]) ?>
+    <?= Html::submitButton('Change Information', ['class' => 'btn btn-primary', 'name' => 'search-button',"style"=>"display:block;margin:0 auto 0 auto"]) ?>
 </div>
 <?php ActiveForm::end(); ?>
 
@@ -62,8 +62,17 @@ change_car_infoAsset::register($this);
     .ogrodje{
         background-color: white;
         padding-bottom: 20px;
-        padding-top: 20px;
+        padding-top: 30px;
         border-radius: 15px;
+        margin-top: 60px;
+    }
+
+    h5{
+        width: 80%;
+        text-align: center;
+        margin: 0 auto 30px auto;
+        font-family: 'Texturina', serif;
+        font-size: 20px;
     }
 
     .forms{

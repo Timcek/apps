@@ -35,8 +35,10 @@ display_carsAsset::register($this);
                                 <div class="col-sm-4" style="margin-right: 2%"><p>Number of seats: <span>'?><?= $car->seats ?><?='</span></p></div>
                                 <div class="col-sm-4"><p>First registration: <span>'?><?= $car->year?><?='</span></p></div>
                             </div>
-                            <div class="row">
-                                <a href="/sola-avto-stran/yii-appli/frontend/web/index.php?r=site%2Fchange_car_info&id='?><?=$car->id?><?='">'?><?="Change car's information</a>
+                            <div class="row" style="margin-top:15px">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-8"><a href="/sola-avto-stran/yii-appli/frontend/web/index.php?r=site%2Fchange_car_info&id='?><?=$car->id?><?='" class="path_to_changeinfo">'?><?="Change car's information</a></div>
+                                <div class'col-sm-2'></div>
                             </div>
                         </div>
             </div>";
