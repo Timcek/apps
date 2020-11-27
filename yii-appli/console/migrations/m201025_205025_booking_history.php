@@ -13,10 +13,11 @@ class m201025_205025_booking_history extends Migration
     public function safeUp()
     {
         $this->createTable('{{%cars}}', [
-                        'id' => $this->integer(11),
+                        'id' => $this->primaryKey(),
                         'booking_date' => $this->date(),
-                        "booking_time_days" => $this->integer(6),
+                        "booking_date_until" => $this->date(),
                         "user" => $this->char(50),
+                        "car_id"=>$this->integer(10)
                     ]);
     }
 
