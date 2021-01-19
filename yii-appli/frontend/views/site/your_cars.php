@@ -26,8 +26,8 @@ display_carsAsset::register($this);
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>Engine power: <span>'?><?= $car->engine_power ?><?='</span></p></div>
-                                <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>Number of dors: <span>'?><?= $car->dors ?><?='</span></p></div>
+                                <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>Engine power (kW): <span>'?><?= $car->engine_power ?><?='</span></p></div>
+                                <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>Number of doors: <span>'?><?= $car->dors ?><?='</span></p></div>
                                 <div class="col-sm-4" style="border-bottom: 1px solid grey"><p>Gearing type: <span>'?><?= $car->gearing_type ?><?='</span></p></div>
                             </div>
                             <div class="row">

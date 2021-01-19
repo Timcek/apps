@@ -15,8 +15,12 @@ display_carsAsset::register($this);
 <div class="site-display_cars">
     <div class="filtering">
         <?php $form = ActiveForm::begin(['id' => 'filter']); ?>
+        <div style="border:1px solid grey; width:50%;margin-top:10px;margin-left:10px; min-width:150px">
+        <p class="p-filter" style="margin-top: 10px;">Car company: <?=$model->car_company?></p>
         <?= $form->field($model, 'car_company',['template'=>"{input}\n{hint}\n{error}"])->textInput(["style"=>"display:none"]) ?>
+        <p class="p-filter">Model: <?=$model->model?></p>
         <?= $form->field($model, 'model',['template'=>"{input}\n{hint}\n{error}"])->textInput(["style"=>"display:none"]) ?>
+        </div>
         <p class="p-filter" style="margin-top: 20px;">Price to</p>
         <?= $form->field($model, 'price',['template'=>"{input}\n{hint}\n{error}"])->dropDownList(["Price_to"=>"Price to","€500"=>"€500","€1000"=>"€1000","€1500"=>"€1500","€2000"=>"€2000","€2500"=>"€2500","€3000"=>"€3000","€4000"=>"€4000","€5000"=>"€5000","€6000"=>"€6000","€7000"=>"€7000","€8000"=>"€8000","€9000"=>"€9000","€10000"=>"€10000","€125000"=>"€12500","€15000"=>"€15000","€17500"=>"€17500","€17500"=>"€17500","€20000"=>"€20000","€25000"=>"€25000","€30000"=>"€30000","€40000"=>"€40000","€50000"=>"€50000","€75000"=>"€75000","€100000"=>"€100000"]) ?>
         <?php
@@ -29,7 +33,7 @@ display_carsAsset::register($this);
         <?= $form->field($model, 'year',['template'=>"{input}\n{hint}\n{error}"])->dropDownList($years) ?>
         <p class="p-filter">Gearing type</p>
         <?= $form->field($model, "gearing_type",['template'=>"{input}\n{hint}\n{error}"])->dropDownList(["all"=>"All","manual"=>"Manual","automatic"=>"Automatic"])?>
-        <p class="p-filter">Dors</p>
+        <p class="p-filter">Doors</p>
         <?= $form->field($model, "dors",['template'=>"{input}\n{hint}\n{error}"])->textInput(["type"=>"number"])?>
         <p  class="p-filter">Seats</p>
         <?= $form->field($model, "seats",['template'=>"{input}\n{hint}\n{error}"])->textInput(["type"=>"number"])?>
@@ -87,8 +91,8 @@ display_carsAsset::register($this);
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>Engine power: <span>'?><?= $car->engine_power ?><?='</span></p></div>
-                            <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>Number of dors: <span>'?><?= $car->dors ?><?='</span></p></div>
+                            <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>Engine power (kW): <span>'?><?= $car->engine_power ?><?='</span></p></div>
+                            <div class="col-sm-4" style="border-bottom: 1px solid grey; margin-right: 2%"><p>Number of doors: <span>'?><?= $car->dors ?><?='</span></p></div>
                             <div class="col-sm-4" style="border-bottom: 1px solid grey"><p>Gearing type: <span>'?><?= $car->gearing_type ?><?='</span></p></div>
                         </div>
                         <div class="row">

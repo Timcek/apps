@@ -152,77 +152,69 @@ class SiteController extends Controller
         }
     }
 
+
     public function actionAdd_cars(){
         $model = new Add_new_car();
+
+        //ce smo pritisnili Crop and Save mora biti v getu photo: true (settamo jo v URL-ju)
         if(isset($_GET["photo"])){
+            //Ko izberemo ali spremenimo sliko pridemo sem notri (zaradi photo)
+            $model->setSessionItems();
+
+            //da dobimo ime slike, ki je shranjena v $_FILES
             $croppedImage = $_FILES["cropped_image"];
             $to_be_upload = $croppedImage["tmp_name"];
-            do {
-                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                $charactersLength = strlen($characters);
-                $randomString = '';
-                for ($i = 0; $i < 15; $i++) {
-                    $randomString .= $characters[rand(0, $charactersLength - 1)];
-                }
-            } while (TempPhotos::findOne(["temp_photo"=>$randomString])!=null);
-            $new_file="C:/xampp/htdocs/sola-avto-stran/yii-appli/frontend/web/assets/temp/".$randomString.".png";
-            rename($to_be_upload,$new_file);
-            $model_temp = new TempPhotos();
-            $model_temp->temp_photo= $randomString;
-            $model_temp->save();
-            $_SESSION["temp_photo_loc"] = $randomString;
-            $_SESSION["incomming"] = "yes";
+
+            $randomString = $model->generateRandomString();
+            $model->savingToTemporary($to_be_upload,$randomString);
         }elseif($model->load(Yii::$app->request->post())){
+            //ker dobimo samo stevilo iz forma mu dodamo € da podatek nato shranimo s tem znakom
             $model->price="€".$model->price;
             $model->Booking="not_booked";
             $model->user=Yii::$app->user->identity->username;
-            if(isset($_SESSION['temp_photo_loc'])){
-            do {
-                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                $charactersLength = strlen($characters);
-                $randomString = '';
-                for ($i = 0; $i < 15; $i++) {
-                    $randomString .= $characters[rand(0, $charactersLength - 1)];
-                }
-            } while (Add_new_car::findOne(["car_photo"=>$randomString])!=null);
-            $model->car_photo=$randomString;
-            $new_file = "C:/xampp/htdocs/sola-avto-stran/yii-appli/frontend/web/assets/car_photos/".$randomString.".png";
-            rename("C:/xampp/htdocs/sola-avto-stran/yii-appli/frontend/web/assets/temp/".$_SESSION["temp_photo_loc"].".png",$new_file);
-            $model->save();
-            $temporery = TempPhotos::findOne((["temp_photo"=>$_SESSION['temp_photo_loc']]));
-            $temporery->delete();
-            unset($_SESSION['temp_photo_loc']);
-            }else{
-                $model->car_photo="no_photo";
-                $model->save();
-            }
+            //da premestimo sliko iz temporery loc v assets/car_photos
+            $model->saveLinkToPhoto();
+
             $_SESSION["adding"]= "jep";
             $this->refresh();
         }else{
             if(isset($_SESSION['temp_photo_loc'])&& !isset($_SESSION["incomming"])){
+                //v to vstopimo, če imamo nastavljeno temp_photo_loc(vendar nismo kliknili na select image(nismo spreminjali temp_photo_loc))
                 unset($_SESSION['temp_photo_loc']);
                 unset($_SESSION['select_change']);
-                //unset($_SESSION["incomming"]);
             }else{
                 if(isset($_SESSION["adding"])){
+                    //ko smo pritisnili submit, lahko izbrisemo select change and adding(je samo zato da pridemo sem notri)
                     unset($_SESSION["adding"]);
                     unset($_SESSION['select_change']);
-                }elseif(isset($_SESSION["fist_time"])){
-                    unset($_SESSION["incomming"]);
+                    //unset($_SESSION['tmp_photo_loc']);
+                    //poglej ko pridemo sem s sliko
+                }elseif(isset($_SESSION["incomming"])){//changing image
                     unset($_SESSION["fist_time"]);
+                    //da spremenimo button iz Select image v Change image
                     $_SESSION["select_change"] = "change";
                 }else{
+                    unset($_SESSION["select_change"]);
+                    //tukaj notri pridemo, če v session ni settano adding ali pa temp_photo_loc
+                    //da vemo da renderamo prvič
                     $_SESSION["fist_time"]="first";
                 }
             }
+            
+            $model->setDataToModel();
+
             return $this->render("add_cars", ["model"=>$model]);
         }
     }
+
+
 
 //this metod renders all of my cars
     public function actionYour_cars(){
         return $this->render("your_cars");
     }
+
+
 //and this method deletes a car that we want to delete in your cars
     public function actionDelete_car(){
         $car = Cars::findOne(["id"=>Yii::$app->request->get("param1")]);
@@ -240,12 +232,8 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-    /*$model->user = Yii::$app->user->identity->username;
-                        $model->car_id=$_GET["id"];
-                        $model->save();
-                        return $this->refresh();
-                    }
-*/
+    
+
     public function actionCar_info(){
         $model = new car_info();
         if($model->load(Yii::$app->request->post())){

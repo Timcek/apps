@@ -26,15 +26,15 @@ change_car_infoAsset::register($this);
             <?=$form->field($model,"year",['template'=>"{input}\n{hint}\n{error}"])->textInput(["type"=>"number"])?>
         </div>
         <div class="input-fild-change">
-            <h4>Price:</h4>
+            <h4>Price (€):</h4>
             <?=$form->field($model,"price",['template'=>"{input}\n{hint}\n{error}"])->textInput(["type"=>"number"])?>
         </div>
         <div class="input-fild-change"> 
             <h4>Gearing type:</h4>       
-            <?=$form->field($model,"gearing_type",['template'=>"{input}\n{hint}\n{error}"])->dropDownList(["all"=>"All","manual"=>"Manual","automatic"=>"Automatic"])?>
+            <?=$form->field($model,"gearing_type",['template'=>"{input}\n{hint}\n{error}"])->dropDownList(["manual"=>"Manual","automatic"=>"Automatic"])?>
         </div>
         <div class="input-fild-change">   
-            <h4>Dors:</h4> 
+            <h4>Doors:</h4> 
             <?=$form->field($model,"dors",['template'=>"{input}\n{hint}\n{error}"])->textInput(["type"=>"number"])?>
         </div>
         <div class="input-fild-change"> 
@@ -43,14 +43,14 @@ change_car_infoAsset::register($this);
         </div>
         <div class="input-fild-change"> 
             <h4>Fuel type:</h4>   
-            <?=$form->field($model,"fuel_type",['template'=>"{input}\n{hint}\n{error}"])->dropDownList(["all"=>"All","diesel"=>"Diesel","gasoline"=>"Gasoline"])?>
+            <?=$form->field($model,"fuel_type",['template'=>"{input}\n{hint}\n{error}"])->dropDownList(["diesel"=>"Diesel","gasoline"=>"Gasoline"])?>
         </div>
         <div style="margin-bottom:20px"> 
-            <h4>Engine power:</h4>   
+            <h4>Engine power(kW):</h4>   
             <?=$form->field($model,"engine_power",['template'=>"{input}\n{hint}\n{error}"])->textInput(["type"=>"number"])?>
         </div>    
     </div>
-    <?= Html::submitButton('Change Information', ['class' => 'btn btn-primary', 'name' => 'search-button',"style"=>"display:block;margin:0 auto 0 auto"]) ?>
+    <?= Html::submitButton('Change Information', ['class' => 'btn btn-primary', 'name' => 'search-button',"style"=>"display:block;margin:0 auto 10px auto"]) ?>
 </div>
 <?php ActiveForm::end(); ?>
 

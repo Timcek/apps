@@ -14,13 +14,13 @@ car_infoAsset::register($this);
     <div style="width: 45%; float: right">
     <?php $informations_of_car = Cars::findOne(["id"=>$_GET["id"]])?>
         <h2 style="text-align:center"><?= $informations_of_car->car_company?> <?= $informations_of_car->model?></h2>
-        <h5>year: <?= $informations_of_car->year?></h5>
-        <h5>price: <?= $informations_of_car->price?></h5>
-        <h5>engine_power: <?= $informations_of_car->engine_power?>kW</h5>
-        <h5>doors: <?= $informations_of_car->dors?></h5>
-        <h5>seats: <?= $informations_of_car->seats?></h5>
-        <h5>gearing type: <?= $informations_of_car->gearing_type?></h5>
-        <h5>fuel type: <?= $informations_of_car->fuel_type?></h5>
+        <h5>Year: <?= $informations_of_car->year?></h5>
+        <h5>Price: <?= $informations_of_car->price?></h5>
+        <h5>Engine power (kW): <?= $informations_of_car->engine_power?>kW</h5>
+        <h5>Doors: <?= $informations_of_car->dors?></h5>
+        <h5>Seats: <?= $informations_of_car->seats?></h5>
+        <h5>Gearing type: <?= $informations_of_car->gearing_type?></h5>
+        <h5>Fuel type: <?= $informations_of_car->fuel_type?></h5>
     </div>
 </div>
 <?php 
@@ -55,7 +55,7 @@ if(Yii::$app->user->isGuest){
 
     echo    
     '<div style="width: 80%; margin:50px auto; background-color:#f2f0f0">
-    <div class="row">
+    <div class="row" style="width:100%; border-bottom:1px solid black;margin-bottom:5px;padding-bottom:5px;padding-top:5px">
         <div class="col-sm-4">Booking date</div>
         <div class="col-sm-4">Until</div>
         <div class="col-sm-4">User who rented it</div>
@@ -67,9 +67,16 @@ if(Yii::$app->user->isGuest){
         echo 
         '<div class="row">
             <div class="col-sm-4">'?><?=$hist_car->booking_date?><?='</div>
-            <div class="col-sm-4">'?><?=$hist_car->booking_date_until?><?=' days</div>
+            <div class="col-sm-4">'?><?=$hist_car->booking_date_until?><?='</div>
         <div class="col-sm-4">'?><?=$hist_car->user?><?='</div>
         </div>';
     }
     ?>
 <?='</div>';}?>
+
+<style>
+    .row{
+        margin-right: 0;
+        margin-left: 0;
+    }
+</style>
